@@ -30,4 +30,5 @@ resource "aws_vpc" "vpc_dev" {
   tags = {
     "Name" = "${terraform.workspace}-vpc"
   }
+  //checking initialization
 }
