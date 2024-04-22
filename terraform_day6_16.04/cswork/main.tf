@@ -8,27 +8,16 @@ terraform {
 }
 
 locals {
-  #   env                 = "prod"
-  name                = "prod-vpc"
-  create_default_cidr = false
+  #   env  = var.env
+  #   name = "${local.env}-vpc"
 
 }
 
-resource "aws_vpc" "vpc_prod" {
-  count      = terraform.workspace == "prod" ? 2 : 0
-  cidr_block = local.create_default_cidr ? "10.0.0.0/16" : var.cidr_block
+resource "aws_vpc" "vpc" {
+  cidr_block = var.cidr_block
 
   tags = {
     "Name" = "${terraform.workspace}-vpc"
   }
 }
 
-resource "aws_vpc" "vpc_dev" {
-  count      = terraform.workspace == "dev" ? 2 : 0
-  cidr_block = local.create_default_cidr ? "10.0.0.0/16" : var.cidr_block
-
-  tags = {
-    "Name" = "${terraform.workspace}-vpc"
-  }
-  //checking initialization
-}
