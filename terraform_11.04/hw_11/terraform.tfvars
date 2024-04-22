@@ -1,0 +1,7 @@
+vpcCidr             = "10.0.0.0/16"
+subnet_public_cidr  = "10.0.1.0/24"
+subnet_private_cidr = "10.0.2.0/24"
+resource_name_pub   = "aidana-test_resource_pub"
+resource_name_pr    = "aidana-test_resource_pr"
+av-zone-pb-subnet   = "us-east-1b"
+av-zone-pr-subnet   = "us-east-1d"
